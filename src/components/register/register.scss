@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Open+Sans:wght@300&family=Raleway:wght@300;400;700&family=Roboto&display=swap');
+//import universals
+@import "../../style/universal.scss";
+
+//variables SASS
+$color-background: linear-gradient(180deg, #FFFEFA 0%, #FFE031 0%, #FFFEFA 0.01%, #FCFCFC 100%);
+$color-dark-purple: #414141;
+$color-main-yellow: #FFE031;
+$color-gray: #A7A7A7;
+$fontFamily: 'Roboto';
+
+
+.body{
+    width: 100%;
+    height: 100vh;
+    background-color: $color-background;
+    font-family: $fontFamily;
+}
+
+.mainRegister{
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    h1{
+        font-size: 24px
+    }
+    &__form{
+        width: 100%;
+        height: 82vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 40px;
+    }
+    &__formInputs{
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        width: 100%;
+        label{
+            display: flex;
+            flex-direction: column;
+            font-size: 10px;
+            color: $color-gray;
+            gap: 5px;
+            input{
+                letter-spacing: normal;
+                text-align: left;
+                font-size: 14px;
+                color: $color-dark-purple;
+                width: 100%;
+                height: 25px;
+                background: none;
+                outline: none;
+                border: none;
+                border-bottom: 1px solid $color-gray;
+            }
+        }
+    }
+    &__formBottom{
+        width: 100%;
+        button{
+            width: 100%;
+            height: 40px;
+            border: none;
+            border-radius: 10px;
+            background-color: $color-main-yellow;
+            color: $color-dark-purple;
+            font-weight: 500;
+            font-size: 13px;
+        }
+    }
+}

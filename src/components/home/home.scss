@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Open+Sans:wght@300&family=Raleway:wght@300;400;700&family=Roboto&display=swap');
+//import universals
+@import "../../style/universal.scss";
+
+//variables SASS
+$color-background: linear-gradient(180deg, #FFFEFA 0%, #FFE031 0%, #FFFEFA 0.01%, #FCFCFC 100%);
+$color-dark-purple: #414141;
+$color-main-yellow: #FFE031;
+$fontFamily: 'Roboto';
+
+.body{
+    width: 100%;
+    height: 100vh;
+    background-color: $color-background;
+    font-family: $fontFamily;
+}
+
+.header{
+    width: 90%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    &__top{
+        display: flex;
+        height: 32px;
+    }
+    &__location{
+        height: 100%;
+        span{
+            color: $color-main-yellow;
+            font-size: 10px;
+            font-weight: 400;
+        }
+        p{
+            font-size: 14px;
+            color: $color-dark-purple;
+        }
+    }
+}
