@@ -1,36 +1,51 @@
 import React from 'react'
+import './orderhistory.scss'
+import logoRest from '../../assets/images/logoRest.png'
+import homeIcon from '../../assets/images/homeIcon.png'
+import searchIcon from '../../assets/images/searchIcon.png'
+import historyIconSelected from '../../assets/images/historyIconSelected.png'
+import accountIcon from '../../assets/images/accountIcon.png'
+import { useNavigate } from 'react-router'
 
 const OrderHistory = () => {
+    const navigate = useNavigate()
+    const handleFooterButtons = (direction) => {
+        navigate(`/${direction}`)
+    }
   return (
     <div className='body'>
         <main className='mainHistory'>
-            <section>
+            <section className='mainHistory__content'>
                 <h1>All orders</h1>
                 <div className='mainHistory__list'>
                     <article>
-                        <img src="../../assets/images/logoRest.png" alt="Restaurant logo" />
+                        <div className='mainHistory__cardLeft'>
+                        <img src={logoRest} alt="Restaurant logo" />
                         <div className='mainHistory__cardInfo'>
                             <h3>Pardes restaurant</h3>
                             <p>$ 132.00</p>
                         </div>
+                        </div>
                         <p>Delivered</p>
                     </article>
                     <article>
-                        <img src="../../assets/images/logoRest.png" alt="Restaurant logo" />
+                        <div className='mainHistory__cardLeft'>
+                        <img src={logoRest} alt="Restaurant logo" />
                         <div className='mainHistory__cardInfo'>
                             <h3>Pardes restaurant</h3>
                             <p>$ 240.00</p>
+                        </div>
                         </div>
                         <p>Cancelled</p>
                     </article>
                 </div>
             </section>
         </main>
-        <footer>
-            <img src="../../assets/images/homeIcon.png.png" alt="home icon" />
-            <img src="../../assets/images/searchIcon.png" alt="search icon" />
-            <img src="../../assets/images/historyIconSelected.png" alt="history icon" />
-            <img src="../../assets/images/accountIcon.png" alt="account icon" />
+        <footer className='footerOrderHistory'>
+            <img src={homeIcon} alt="home icon" onClick={() => {handleFooterButtons('home')}}/>
+            <img src={searchIcon} alt="search icon" onClick={() => {handleFooterButtons('search')}}/>
+            <img src={historyIconSelected} alt="history icon" onClick={() => {handleFooterButtons('orderhistory')}}/>
+            <img src={accountIcon} alt="account icon" onClick={() => {handleFooterButtons('account')}}/>
         </footer>
     </div>
   )

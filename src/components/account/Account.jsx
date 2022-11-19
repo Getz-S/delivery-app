@@ -1,70 +1,88 @@
 import React from 'react'
+import './account.scss'
+import profileImage from '../../assets/images/Profileimg.png'
+import accountEditIcon from '../../assets/images/accountEditIcon.png'
+import accountEditNotificationIcon from '../../assets/images/accountEditNotificationIcon.png'
+import paymentIcon from '../../assets/images/paymentIcon.png'
+import languageIcon from '../../assets/images/languageIcon.png'
+import accountLocationIcon from '../../assets/images/accountLocationIcon.png'
+import FAQIcon from '../../assets/images/FAQIcon.png'
+import supportIcon from '../../assets/images/supportIcon.png'
+import homeIcon from '../../assets/images/homeIcon.png'
+import searchIcon from '../../assets/images/searchIcon.png'
+import historyIcon from '../../assets/images/historyIcon.png'
+import accountIconSelected from '../../assets/images/accountIconSelected.png'
+import { useNavigate } from 'react-router'
 
 const Account = () => {
+    const navigate = useNavigate()
+    const handleFooterButtons = (direction) => {
+        navigate(`/${direction}`)
+    }
   return (
     <div className='body'>
         <main className='mainAccount'>
             <div className='mainAccount__info'>
-                <img src="../../assets/images/Profileimg.png" alt="Profile image" />
+                <img src={profileImage} alt="Profile image" />
                 <p>Jenny Wilson</p>
             </div>
             <section className='mainAccount__options'>
                 <article>
                     <div className='mainAccount__optionName'>
-                        <img src="#" alt="" />
+                        <img src={accountEditIcon} alt="" />
                         <p>Account edit</p>
                     </div>
                     <img src="#" alt="" />
                 </article>
                 <article>
                     <div className='mainAccount__optionName'>
-                        <img src="#" alt="" />
+                        <img src={accountEditNotificationIcon} alt="" />
                         <p>Account edit</p>
                     </div>
                     <img src="#" alt="" />
                 </article>
                 <article>
                     <div className='mainAccount__optionName'>
-                        <img src="#" alt="" />
+                        <img src={paymentIcon} alt="" />
                         <p>Payment</p>
                     </div>
                     <img src="#" alt="" />
                 </article>
                 <article>
                     <div className='mainAccount__optionName'>
-                        <img src="#" alt="" />
+                        <img src={languageIcon} alt="" />
                         <p>Language</p>
                     </div>
                     <img src="#" alt="" />
                 </article>
                 <article>
                     <div className='mainAccount__optionName'>
-                        <img src="#" alt="" />
+                        <img src={accountLocationIcon} alt="" />
                         <p>Location</p>
                     </div>
                     <img src="#" alt="" />
                 </article>
                 <article>
                     <div className='mainAccount__optionName'>
-                        <img src="#" alt="" />
+                        <img src={FAQIcon} alt="" />
                         <p>FAQ</p>
                     </div>
                     <img src="#" alt="" />
                 </article>
                 <article>
                     <div className='mainAccount__optionName'>
-                        <img src="#" alt="" />
+                        <img src={supportIcon} alt="" />
                         <p>Support</p>
                     </div>
                     <img src="#" alt="" />
                 </article>
             </section>
         </main>
-        <footer>
-            <img src="../../assets/images/homeIcon.png.png" alt="home icon" />
-            <img src="../../assets/images/searchIcon.png" alt="search icon" />
-            <img src="../../assets/images/historyIcon.png" alt="history icon" />
-            <img src="../../assets/images/accountIconSelected.png" alt="account icon" />
+        <footer className='footerAccount'>
+            <img src={homeIcon} alt="home icon" onClick={() => {handleFooterButtons('home')}}/>
+            <img src={searchIcon} alt="search icon" onClick={() => {handleFooterButtons('search')}}/>
+            <img src={historyIcon} alt="history icon" onClick={() => {handleFooterButtons('orderhistory')}}/>
+            <img src={accountIconSelected} alt="account icon" onClick={() => {handleFooterButtons('account')}}/>
         </footer>
     </div>
   )

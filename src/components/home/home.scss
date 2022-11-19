@@ -6,6 +6,9 @@
 $color-background: linear-gradient(180deg, #FFFEFA 0%, #FFE031 0%, #FFFEFA 0.01%, #FCFCFC 100%);
 $color-dark-purple: #414141;
 $color-main-yellow: #FFE031;
+$color-gray-dark: #6C6C6C;
+$color-gray-light: #F2F2F2;
+
 $fontFamily: 'Roboto';
 
 .body{
@@ -17,12 +20,27 @@ $fontFamily: 'Roboto';
 
 .header{
     width: 90%;
+    height: 28vh;
+    padding-top: 15px;
     margin: 0 auto;
     display: flex;
     flex-direction: column;
     &__top{
-        display: flex;
         height: 32px;
+        display: flex;
+        justify-content: space-between;
+        section{
+            display: flex;
+            height: 32px;
+        }
+        button{
+            width: 80px;
+            background-color: $color-main-yellow;
+            color: $color-dark-purple;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
     }
     &__location{
         height: 100%;
@@ -34,6 +52,102 @@ $fontFamily: 'Roboto';
         p{
             font-size: 14px;
             color: $color-dark-purple;
+            padding: 0;
+            margin: 0;
         }
     }
+    &__promo{
+        display: flex;
+        gap: 10px;
+        overflow-x: scroll;
+        padding-top: 15px;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        img{
+            border-radius: 10px;
+        }
+    }
+    &__title{
+        margin: 10px 0px;
+        color: $color-dark-purple;
+        font-size: 14px;
+    }
+}
+
+.mainHome{
+    width: 90%;
+    height: 63vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    &__searchButtons{
+        display: flex;
+        gap: 10px;
+        height: 32px;
+        overflow-x: scroll;
+        margin-bottom: 25px;
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        button{
+            height: 100%;
+            min-width: 106px;
+            border-radius: 5px;
+            color: $color-gray-dark;
+            background-color: $color-gray-light;
+            border: none;
+        }
+        .buttonAll{
+            background-color: $color-main-yellow;
+        }
+    }
+    &__restCardsContainer{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        height: 55vh;
+        overflow-y: scroll;
+    }
+    &__restCard{
+        display: flex;
+        height: 106px;
+        border-radius: 10px;
+        background-color: #FFFFFF;
+        figure{
+            height: 100%;
+            img{
+                height: 100%;
+                border-radius: 7px 0 0 7px;
+            }
+        }
+    }
+    &__restCardInformation{
+        padding: 10px;
+        h3{
+            font-size: 14px;
+            font-weight: 400;
+            color: $color-dark-purple;
+        }
+        p{
+            font-size: 14px;
+            font-weight: 300;
+            color: $color-dark-purple;
+        }
+        span{
+            font-size: 12px;
+            font-weight: 300;
+            color: $color-gray-dark;
+        }
+    }
+}
+
+.footerHome{
+    width: 90%;
+    height: 8vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }

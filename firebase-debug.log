@@ -1,0 +1,28 @@
+[debug] [2022-11-18T14:59:01.433Z] ----------------------------------------------------------------------
+[debug] [2022-11-18T14:59:01.435Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\DELL\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2022-11-18T14:59:01.436Z] CLI Version:   11.16.1
+[debug] [2022-11-18T14:59:01.436Z] Platform:      win32
+[debug] [2022-11-18T14:59:01.436Z] Node Version:  v16.15.1
+[debug] [2022-11-18T14:59:01.437Z] Time:          Fri Nov 18 2022 09:59:01 GMT-0500 (Ora standard della Colombia)
+[debug] [2022-11-18T14:59:01.437Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2022-11-18T14:59:01.449Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2022-11-18T14:59:01.449Z] > authorizing via signed-in user (silvanaranjogustavoandres@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  D:\Escritorio\Bootcamp\1.2\react\deliveryApp\delivery-app
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
