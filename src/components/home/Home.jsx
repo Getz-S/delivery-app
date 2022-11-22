@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Rating } from "@mui/material";
 import './home.scss'
 import foodBanner1 from '../../assets/images/foodBanner1.png'
@@ -13,11 +13,18 @@ import historyIcon from '../../assets/images/historyIcon.png'
 import accountIcon from '../../assets/images/accountIcon.png'
 import { useNavigate } from 'react-router';
 import { actionLogoutAsync } from '../../redux/actions/userActions';
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { actionFillRestaurantsAsync } from '../../redux/actions/restaurantsActions';
 
 const Home = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
+    const { restaurants } = useSelector((store) => store.restaurantsStore);
+    
+    useEffect(() => {
+        dispatch(actionFillRestaurantsAsync())
+    }, [dispatch])
+
     const handleFooterButtons = (direction) => {
         navigate(`/${direction}`)
     }
@@ -53,28 +60,23 @@ const Home = () => {
                 <button>Caffe</button>
             </div>
             <section className='mainHome__restCardsContainer'>
-                <article className='mainHome__restCard'>
-                    <figure>
-                        <img src={rest1Image} alt="image" />
-                    </figure>
-                    <div className='mainHome__restCardInformation'>
-                        <h3>Pardes Restaurant</h3>
-                        <Rating name="read-only" value={4} size="small" readOnly />
-                        <p>Work time 09:30 - 23:00</p>
-                        <span>Before you 4$</span>
-                    </div>
-                </article>
-                <article className='mainHome__restCard'>
-                    <figure>
-                        <img src={rest1Image} alt="image" />
-                    </figure>
-                    <div className='mainHome__restCardInformation'>
-                        <h3>Pardes Restaurant</h3>
-                        <Rating name="read-only" value={4} size="small" readOnly />
-                        <p>Work time 09:30 - 23:00</p>
-                        <span>Before you 4$</span>
-                    </div>
-                </article>
+                {
+                    restaurants && restaurants.length ? (
+                        restaurants.map((restautant, index) => (
+                            <article key={index} className='mainHome__restCard'>
+                                <figure>
+                                    <img src={restautant.image} alt="image" />
+                                </figure>
+                                <div className='mainHome__restCardInformation'>
+                                    <h3>{restautant.name}</h3>
+                                    <Rating name="read-only" value={4} size="small" readOnly />
+                                    <p>Work time 09:30 - 23:00</p>
+                                    <span>Before you 4$</span>
+                                </div>
+                            </article>
+                        ))
+                    ) : (<></>)
+                }
             </section>
         </main>
         <footer className='footerHome'>

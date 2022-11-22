@@ -36,15 +36,17 @@ const Login = () => {
                 </label>
                 
             </div>
-            {
-        loginProvider.map((provider, index) =>(
-          <img key={index} src={provider.image} alt={provider.name} style={{width: 50, marginLeft: 30}} 
-          onClick={()=>{handleLoginGoogleOrFacebook(provider.provider)}} />
-        ))
-      }
             <div className='mainLogin__formBottom'>
-            
-            <Link to="/register">¿Desea crear una cuenta?</Link>
+              <section>
+              <Link to="/register">¿Desea crear una cuenta?</Link>
+                <div>
+                {
+              loginProvider.map((provider, index) =>(
+                <img key={index} src={provider.image} alt={provider.name} style={{width: 50, marginLeft: 30}} onClick={()=>{handleLoginGoogleOrFacebook(provider.provider)}} />
+              ))
+            }
+                </div>
+              </section>
                 <button type="submit">Login</button>
             </div>
         </form>
