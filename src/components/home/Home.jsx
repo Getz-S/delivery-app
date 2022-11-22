@@ -6,7 +6,6 @@ import foodBanner2 from '../../assets/images/foodBanner2.png'
 import foodBanner3 from '../../assets/images/foodBanner3.png'
 import locationImage from '../../assets/images/locationIcon.png'
 import promo1Image from '../../assets/images/Promo1.png'
-import rest1Image from '../../assets/images/rest1.png'
 import homeIconSelected from '../../assets/images/homeIconSelected.png'
 import searchIcon from '../../assets/images/searchIcon.png'
 import historyIcon from '../../assets/images/historyIcon.png'
@@ -31,6 +30,12 @@ const Home = () => {
     const logOut = () => {
         dispatch(actionLogoutAsync());
       };
+    
+    const restDetail = (restaurant) => {
+        const restName = restaurant.name.toLowerCase().replace(" ", "");
+        const restName1 = restName.toLowerCase().replace(" ", "");
+        navigate(`/restaurant/${restName1}`)
+    }
   return (
     <div className='body'>
         <header className='header'>
@@ -62,13 +67,13 @@ const Home = () => {
             <section className='mainHome__restCardsContainer'>
                 {
                     restaurants && restaurants.length ? (
-                        restaurants.map((restautant, index) => (
-                            <article key={index} className='mainHome__restCard'>
+                        restaurants.map((restaurant, index) => (
+                            <article key={index} className='mainHome__restCard' onClick={()=>{restDetail(restaurant)}}>
                                 <figure>
-                                    <img src={restautant.image} alt="image" />
+                                    <img src={restaurant.image} alt="image" />
                                 </figure>
                                 <div className='mainHome__restCardInformation'>
-                                    <h3>{restautant.name}</h3>
+                                    <h3>{restaurant.name}</h3>
                                     <Rating name="read-only" value={4} size="small" readOnly />
                                     <p>Work time 09:30 - 23:00</p>
                                     <span>Before you 4$</span>

@@ -28,7 +28,16 @@ export const actionFillRestaurantsAsync = () => {
 
 const actionFillRestaurantsSync = (restaurants) => {
     return {
-        type: restaurantsTypes.RESTAURANTS_FILL,
-        payload: restaurants
-    }
-}
+      type: restaurantsTypes.RESTAURANTS_FILL,
+      payload: restaurants.map((restaurant) => {
+        console.log(restaurant.name)
+        return {
+          id: restaurant.id,
+          image: restaurant.image,
+          name: restaurant.name,
+          menu: restaurant.menu._key.path.segments.slice(-2).join('/'),
+          description: restaurant.description,
+        };
+      }),
+    };
+  };

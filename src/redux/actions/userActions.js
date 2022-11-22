@@ -123,3 +123,17 @@ const actionLogoutSync = () => {
   }
 
 }
+
+export const actionUpdateProfileAsync = () => {
+  return (dispatch) => {
+    updateProfile(auth.currentUser, {
+      displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
+    }).then(() => {
+      // Profile updated!
+      // ...
+    }).catch((error) => {
+      // An error occurred
+      // ...
+    });
+    }
+}

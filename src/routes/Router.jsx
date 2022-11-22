@@ -9,10 +9,6 @@ import EnterAdress from '../components/register/EnterAdress'
 import Register from '../components/register/Register'
 import PhoneVerification from '../components/login/PhoneVerification'
 import Login from '../components/login/Login'
-import Home from '../components/home/Home'
-import Search from '../components/search/Search'
-import OrderHistory from '../components/orderHistory/OrderHistory'
-import Account from '../components/account/Account'
 import { useDispatch, useSelector } from "react-redux";
 import { actionLoginSync } from "../redux/actions/userActions";
 import { auth } from "../firebase/firebaseConfig";
