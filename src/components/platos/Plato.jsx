@@ -29,7 +29,6 @@ const Plato = () => {
       setPlatoRest(tempPlato)
       setRestaurant(tempRest)
       setPrice(tempPlato.price)
-      console.log(tempPlato.price)
     }
     
 
@@ -65,7 +64,6 @@ const Plato = () => {
         }
         dispatch(addCartSync(tempCart))
         navigate('/cart')
-        console.log('click')
       }
 
   return (

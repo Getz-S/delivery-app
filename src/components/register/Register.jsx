@@ -29,7 +29,6 @@ const Register = () => {
     };
     const onSubmit = async (data) => {
       const photoUrl = await onUpLoadImage(data.image[0]);
-      console.log(data);
       const newUser = {
         name: data.name,
         email: data.email,

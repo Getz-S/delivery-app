@@ -27,7 +27,6 @@ const OrderHistory = () => {
     const getOrdersUser = () => {
         const tempOrdersUser = orders.filter((order) => order.user.accessToken === user.accessToken && order.user.email === user.email && order.user.name === user.name)
         setOrdersUser(tempOrdersUser)
-        console.log(tempOrdersUser)
     }
 
 

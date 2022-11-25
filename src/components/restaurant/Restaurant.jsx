@@ -27,8 +27,6 @@ const Restaurant = () => {
   useEffect(() => {
     getRestaurantInfo()
     // getPlatos()
-    console.log('hola')
-    console.log(platosRest)
   }, []);
 
   const getRestaurantInfo = () => {

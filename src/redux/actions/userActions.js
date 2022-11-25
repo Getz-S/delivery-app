@@ -8,7 +8,6 @@ export const actionRegisterAsync = ({ email, password, name, avatar, phoneNumber
   return (dispatch) => {
     createUserWithEmailAndPassword(auth, email, password)
       .then(async ({ user }) => {
-        console.log(user);
         const { accessToken } = user.auth.currentUser;
         await updateProfile(auth.currentUser, {
           displayName: name,
@@ -75,7 +74,6 @@ export const loginProviderAsync = (provider) => {
     signInWithPopup(auth, provider)
       .then((result) => {
         const user = result.user;
-        console.log(user)
         const { displayName, accessToken, photoURL, phoneNumber } = user.auth.currentUser
         dispatch(actionLoginSync({
           email: user.email, 

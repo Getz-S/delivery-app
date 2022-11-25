@@ -23,7 +23,6 @@ const Cart = () => {
             ...cart,
             user: user,
         }
-        console.log(order)
         dispatch(actionAddOrderAsync(order));
         navigate('/home')
     }

@@ -24,7 +24,6 @@ const Home = () => {
     const [buttonSelected, setButtonSelected] = useState(0)
     useEffect(() => {
         dispatch(actionFillRestaurantsAsync())
-        console.log(restaurants)
         setRestFiltered(restaurants)
     }, [dispatch])
 

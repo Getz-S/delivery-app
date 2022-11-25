@@ -54,7 +54,6 @@ export const actionFillOrdersAsync = () => {
 }
 
 const actionFillOrdersSync = (orders) => {
-    console.log(orders)
     return {
       type: orderTypes.ORDERS_FILL,
       payload: orders
