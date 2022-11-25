@@ -37,7 +37,7 @@ const Account = () => {
                 <article>
                     <div onClick={()=>{handleFooterButtons('accountEdit')}} className='mainAccount__optionName'>
                         <img src='' alt="" />
-                        <p>Name</p>
+                        <p>Name:</p>
                         <p>{user.name}</p>
                     </div>
                     <img src="#" alt="" />
@@ -45,15 +45,15 @@ const Account = () => {
                 <article>
                     <div className='mainAccount__optionName'>
                         <img src='#' alt="" />
-                        <p>password</p>
-                        <p>.........</p>
+                        <p>password:</p>
+                        <p>********</p>
                     </div>
                     <img src="#" alt="" />
                 </article>
                 <article>
                     <div className='mainAccount__optionName'>
                         <img src='#' alt="" />
-                        <p>Phone Number</p>
+                        <p>Phone Number:</p>
                         <p>{user.phoneNumber}</p>
                     </div>
                     <img src="#" alt="" />
