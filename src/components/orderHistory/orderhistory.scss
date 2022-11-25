@@ -43,6 +43,7 @@ $fontFamily: 'Roboto';
             img{
                 height: 44px;
                 width: 44px;
+                border-radius: 50%;
             }
             p{
                 font-size: 10px;
@@ -52,6 +53,7 @@ $fontFamily: 'Roboto';
     &__cardLeft{
         display: flex;
         gap: 15px;
+
     }
     &__cardInfo{
         display: flex;

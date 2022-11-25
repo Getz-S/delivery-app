@@ -33,14 +33,29 @@ $fontFamily: 'Roboto';
             display: flex;
             height: 32px;
         }
-        button{
-            width: 80px;
-            background-color: $color-main-yellow;
-            color: $color-dark-purple;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-        }
+    }
+    &__topRight{
+        display: flex;
+        justify-content: right;
+        width: 135px;
+        height: max-content;
+    }
+    &__logOut{
+        width: 80px;
+        height: 30px;
+        background-color: $color-main-yellow;
+        color: $color-dark-purple;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
+    }
+
+    &__cart{
+        width: 40px;
+        background-color: $color-main-yellow;
+        border-radius: 5px;
+        border: none;
+        cursor: pointer;
     }
     &__location{
         height: 100%;
@@ -97,8 +112,9 @@ $fontFamily: 'Roboto';
             color: $color-gray-dark;
             background-color: $color-gray-light;
             border: none;
+            cursor: pointer;
         }
-        .buttonAll{
+        .buttonSelected{
             background-color: $color-main-yellow;
         }
     }
@@ -115,10 +131,12 @@ $fontFamily: 'Roboto';
         height: 106px;
         border-radius: 10px;
         background-color: #FFFFFF;
+        cursor: pointer;
         figure{
             height: 100%;
             img{
                 height: 100%;
+                width: 134px;
                 border-radius: 7px 0 0 7px;
             }
         }

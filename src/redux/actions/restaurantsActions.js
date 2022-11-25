@@ -30,13 +30,14 @@ const actionFillRestaurantsSync = (restaurants) => {
     return {
       type: restaurantsTypes.RESTAURANTS_FILL,
       payload: restaurants.map((restaurant) => {
-        console.log(restaurant.name)
+        // const menu = restaurant.menu._key.path.segments.slice(-2).join('/')
         return {
           id: restaurant.id,
           image: restaurant.image,
           name: restaurant.name,
-          menu: restaurant.menu._key.path.segments.slice(-2).join('/'),
+          menu: restaurant.menu,
           description: restaurant.description,
+          category: restaurant.category,
         };
       }),
     };

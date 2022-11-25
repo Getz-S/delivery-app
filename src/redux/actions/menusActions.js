@@ -30,9 +30,11 @@ const actionFillMenusSync = (menus) => {
     return {
       type: menusTypes.MENUS_FILL,
       payload: menus.map((menu) => {
+        console.log(menu)
         return {
           id: menu.id,
-          menu: menu.platos._key.path.segments.slice(-2).join('/'),
+        //   menu: menu.platos._key.path.segments.slice(-2).join('/'),
+          menu: menu.platos._key.path.segments,
         };
       }),
     };

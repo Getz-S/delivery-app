@@ -26,6 +26,9 @@ $fontFamily: 'Roboto';
 .headerRest{
     width: 100%;
     height: 25vh;
+    img{
+        cursor: pointer;
+    }
     &__container{
         margin-top: 5px;
         display: flex;
@@ -37,6 +40,7 @@ $fontFamily: 'Roboto';
             img{
                 height: 100%;
                 border-radius: 7px 0 0 7px;
+                cursor:auto;
             }
         }
     }
@@ -80,6 +84,7 @@ $fontFamily: 'Roboto';
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
+        gap: 15px;
     }
     &__card{
         width: 160px;
@@ -93,6 +98,7 @@ $fontFamily: 'Roboto';
         img{
             width: 154px;
             height: 110px;
+            border-radius: 10px;
         }
         h4{
             width: 14px;

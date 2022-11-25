@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Rating } from "@mui/material";
 import './home.scss'
 import foodBanner1 from '../../assets/images/foodBanner1.png'
@@ -10,6 +10,7 @@ import homeIconSelected from '../../assets/images/homeIconSelected.png'
 import searchIcon from '../../assets/images/searchIcon.png'
 import historyIcon from '../../assets/images/historyIcon.png'
 import accountIcon from '../../assets/images/accountIcon.png'
+import cartIcon from '../../assets/images/cartIcon.png'
 import { useNavigate } from 'react-router';
 import { actionLogoutAsync } from '../../redux/actions/userActions';
 import { useDispatch, useSelector } from "react-redux";
@@ -19,9 +20,12 @@ const Home = () => {
     const dispatch = useDispatch();
     const navigate = useNavigate()
     const { restaurants } = useSelector((store) => store.restaurantsStore);
-    
+    const [restFiltered, setRestFiltered] = useState(restaurants)
+    const [buttonSelected, setButtonSelected] = useState(0)
     useEffect(() => {
         dispatch(actionFillRestaurantsAsync())
+        console.log(restaurants)
+        setRestFiltered(restaurants)
     }, [dispatch])
 
     const handleFooterButtons = (direction) => {
@@ -36,6 +40,27 @@ const Home = () => {
         const restName1 = restName.toLowerCase().replace(" ", "");
         navigate(`/restaurant/${restName1}`)
     }
+
+    const filterRestaurants = (value) => {
+        if (value === 'all') {
+            setRestFiltered(restaurants)
+            setButtonSelected(0)
+        } else if (value === 'hamburguesas') {
+            const hamburguerRest = restaurants.filter((restaurant) => restaurant.category === 'hamburguesa')
+            setRestFiltered(hamburguerRest)
+            setButtonSelected(1)
+            
+        } else if (value === 'pizzas') {
+            const pizzasRest = restaurants.filter((restaurant) => restaurant.category === 'pizza')
+            setRestFiltered(pizzasRest)
+            setButtonSelected(2)
+            
+        } else if (value === 'cafe') {
+            const cafeRest = restaurants.filter((restaurant) => restaurant.category === 'cafe')
+            setRestFiltered(cafeRest)
+            setButtonSelected(3)
+        }
+    }
   return (
     <div className='body'>
         <header className='header'>
@@ -47,7 +72,9 @@ const Home = () => {
                     <p>882 Well St, New-York</p>
                 </div>
                 </section>
-                <button onClick={logOut}>Logout</button>
+                <div className='header__topRight'>
+                    <button className='header__logOut' onClick={logOut}>Logout</button>
+                </div>
             </div>
             <div className='header__promo'>
                 <img src={promo1Image} alt="image" />
@@ -59,15 +86,15 @@ const Home = () => {
         </header>
         <main className='mainHome'>
             <div className='mainHome__searchButtons'>
-                <button className='buttonAll'>All</button>
-                <button>Fast food</button>
-                <button>Pizza</button>
-                <button>Caffe</button>
+                <button onClick={()=>{filterRestaurants('all')}} className={buttonSelected === 0 ? 'buttonSelected' : ''}>All</button>
+                <button onClick={()=>{filterRestaurants('hamburguesas')}} className={buttonSelected === 1 ? 'buttonSelected' : ''}>Hamburguesa</button>
+                <button onClick={()=>{filterRestaurants('pizzas')}} className={buttonSelected === 2 ? 'buttonSelected' : ''}>Pizza</button>
+                <button onClick={()=>{filterRestaurants('cafe')}} className={buttonSelected === 3 ? 'buttonSelected' : ''}>Caffe</button>
             </div>
             <section className='mainHome__restCardsContainer'>
                 {
                     restaurants && restaurants.length ? (
-                        restaurants.map((restaurant, index) => (
+                        restFiltered.map((restaurant, index) => (
                             <article key={index} className='mainHome__restCard' onClick={()=>{restDetail(restaurant)}}>
                                 <figure>
                                     <img src={restaurant.image} alt="image" />

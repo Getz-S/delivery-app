@@ -42,7 +42,7 @@ export const schemaLogin = yup.object({
 export const loginProvider = [
   {
     name: "google",
-    image: "https://assets.stickpng.com/images/5847f9cbcef1014c0b5e48c8.png",
+    image: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/2048px-Google_%22G%22_Logo.svg.png",
     provider: google,
   },
   {

@@ -7,6 +7,7 @@ $color-background: linear-gradient(180deg, #FFFEFA 0%, #FFE031 0%, #FFFEFA 0.01%
 $color-dark-purple: #414141;
 $color-main-yellow: #FFE031;
 $color-gray: #A7A7A7;
+$color-gray-dark: #6C6C6C;
 $fontFamily: 'Roboto';
 
 
@@ -27,9 +28,13 @@ $fontFamily: 'Roboto';
         width: 100%;
         height: 44px;
         display: flex;
-        flex-direction: column;
         align-items: center;
         justify-content: space-between;
+        background-color: #F2F2F2;
+        color: $color-gray;
+        width: 100%;
+        border-radius: 10px;
+        padding: 5px 20px;
         input{
             height: 100%;
             background-color: #F2F2F2;
@@ -38,7 +43,10 @@ $fontFamily: 'Roboto';
             border-radius: 10px;
             border: none;
             outline: none;
-            padding: 5px 20px;
+        }
+        button{
+            background: none;
+            border: none;
         }
     }
     &__listSection{
@@ -63,6 +71,40 @@ $fontFamily: 'Roboto';
             width: 100%;
             cursor: pointer;
 
+        }
+    }
+    &__cardsContainer{
+        margin-top: 30px;
+        height: 75vh;
+        overflow-y: scroll;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+    }
+    &__card{
+        width: 160px;
+        height: 182px;
+        background-color: #FFFFFF;
+        border-radius: 5px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        img{
+            width: 154px;
+            height: 110px;
+            border-radius: 10px;
+        }
+        h4{
+            width: 14px;
+            color: $color-dark-purple;
+            width: 90%;
+        }
+        p{
+            font-size: 14px;
+            width: 90%;
+            color: $color-gray-dark;
         }
     }
 }

@@ -5,25 +5,52 @@ import './restaurant.scss'
 import { Rating } from '@mui/material'
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate, useParams } from 'react-router'
+import { actionFillMenusAsync } from '../../redux/actions/menusActions'
+import { actionFillPlatosAsync } from '../../redux/actions/platosAction'
 
 const Restaurant = () => {
   // const [load, setLoad] = useState(false)
-
+  const dispatch = useDispatch()
   const [restaurant, setRestaurant] = useState({})
+  const [platosRest, setPlatosRest] = useState({})
   const navigate = useNavigate()
   const { restaurants } = useSelector((store) => store.restaurantsStore);
+  const { platos } = useSelector((store) => store.platosStore);
+  // const { menus } = useSelector((store) => store.menusStore);
   const { name } = useParams()
 
   useEffect(() => {
+    dispatch(actionFillPlatosAsync())
+
+  }, [dispatch]);
+
+  useEffect(() => {
     getRestaurantInfo()
-    console.log(restaurant)
+    // getPlatos()
+    console.log('hola')
+    console.log(platosRest)
   }, []);
 
   const getRestaurantInfo = () => {
     let tempRestaurant = restaurants.find((restaurant) => restaurant.name.toLowerCase().replace(" ", "").replace(" ", "") === name)
+    let tempPlatosRest = platos.filter((plato) => plato.menu === tempRestaurant.menu)
     // setLoad(true)
     setRestaurant(tempRestaurant)
+    setPlatosRest(tempPlatosRest)
   }
+
+  const platoDetail = (plato) => {
+    const platoName = plato.name.toLowerCase().replace(" ", "").toLowerCase().replace(" ", "").toLowerCase().replace(" ", "");
+    navigate(`/restaurant/${name}/${platoName}`)
+}
+
+  // const getPlatos = () => {
+  //   console.log(tempPlatosRest)
+  // }
+
+  // const getMenusInfo = () => {
+  //   let tempMenus
+  // }
 
   const handleGoBack = () => {
     navigate(-1)
@@ -36,7 +63,7 @@ const Restaurant = () => {
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Ic_chevron_left_48px.svg/1200px-Ic_chevron_left_48px.svg.png" width="30px" alt="go back" onClick={handleGoBack} />
         <section className='headerRest__container container'>
           <figure>
-            <img src={rest1Image} alt="image" />
+            <img src={restaurant.image} alt="image" />
           </figure>
           <div className='headerRest__info'>
             <h3>{restaurant.name}</h3>
@@ -49,26 +76,19 @@ const Restaurant = () => {
         <section className='mainRest__container container'>
           <span>Menu</span>
           <div className='mainRest__cardsContainer'>
-            <article className='mainRest__card'>
-              <img src={cardImage} alt="food image" />
-              <h4>Bolognese salad</h4>
-              <p>$ 14.45</p>
-            </article>
-            <article className='mainRest__card'>
-              <img src={cardImage} alt="food image" />
-              <h4>Bolognese salad</h4>
-              <p>$ 14.45</p>
-            </article>
-            <article className='mainRest__card'>
-              <img src={cardImage} alt="food image" />
-              <h4>Bolognese salad</h4>
-              <p>$ 14.45</p>
-            </article>
-            <article className='mainRest__card'>
-              <img src={cardImage} alt="food image" />
-              <h4>Bolognese salad</h4>
-              <p>$ 14.45</p>
-            </article>
+          {
+
+            platosRest.length ? (
+              platosRest.map((plato, index) => (
+                <article onClick={()=>{platoDetail(plato)}} key={index} className='mainRest__card'>
+                  <img src={plato.image} alt="food image" />
+                  <h4>{plato.name}</h4>
+                  <p>$ {plato.price}</p>
+                </article>
+              ))
+            ):
+            (<div>Cargando...</div>)
+          }
           </div>
         </section>
       </main>

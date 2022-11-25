@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&family=Open+Sans:wght@300&family=Raleway:wght@300;400;700&family=Roboto&display=swap');
+//import universals
+@import "../../style/universal.scss";
+
+//variables SASS
+$color-background: linear-gradient(180deg, #FFFEFA 0%, #FFE031 0%, #FFFEFA 0.01%, #FCFCFC 100%);
+$color-dark-purple: #414141;
+$color-main-yellow: #FFE031;
+$color-gray-dark: #6C6C6C;
+$color-gray-light: #F2F2F2;
+
+$fontFamily: 'Roboto';
+
+.body{
+    width: 100%;
+    height: 100vh;
+    background-color: $color-background;
+    font-family: $fontFamily;
+}
+
+.container{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.mainCart{
+    height: 100%;
+    &__topSection{
+        height: 65vh;
+    }
+    &__titleContainer{
+        display: flex;
+        justify-content: center;
+        position: relative;
+        margin-top: 20px;
+        align-items: center;
+        img{
+            position: absolute;
+            left: 0;
+        }
+        span{
+            font-size: 14px;
+            color: $color-dark-purple;
+        }
+    }
+    &__deliverTo{
+        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        h3{
+            font-size: 20px;
+            font-weight: 400;
+            color: $color-dark-purple;
+        }
+        div{
+            display: flex;
+            gap: 10px;
+            p{
+                font-size: 14px;
+                color: $color-dark-purple;
+            }
+        }
+    }
+    &__payment{
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+        margin-top: 20px;
+        h3{
+            font-size: 20px;
+            font-weight: 400;
+            color: $color-dark-purple;
+        }
+        button{
+            height: 32px;
+            background-color: $color-main-yellow;
+            width: 106px;
+            border: none;
+            border-radius: 5px;
+        }
+    }
+    &__productsContainer{
+        margin-top: 30px;
+        height: 15vh;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    &__product{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        div{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: max-content;
+            gap: 20px;
+            color: $color-dark-purple;
+            img{
+                border-radius: 5px;
+            }
+            span{
+                font-size: 12px;
+                background-color: $color-gray-light;
+                border-radius: 5px;
+                padding: 8px 10px;
+            }
+            h4{
+                font-size: 14px;
+                font-weight: 400;;
+            }
+        }
+    }
+    &__productPrice{
+        font-size: 14px;
+        color: $color-gray-dark;
+    }
+    &__note{
+        margin-top: 5px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        h3{
+            font-size: 20px;
+            font-weight: 400;
+            color: $color-dark-purple;   
+        }
+        input{
+            width: 100%;
+            height: 44px;
+            border-radius: 10px;
+            border: 1px solid $color-gray-dark;
+            padding: 10px;
+            outline: none;
+        }
+    }
+    &__bottom{
+        margin-top: 25px;
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        button{
+            margin-top: 15px;
+            width: 100%;
+            height: 44px;
+            border-radius: 10px;
+            background-color: $color-main-yellow;
+            border: none;
+            cursor: pointer;
+        }
+        div{
+            display: flex;
+            justify-content: space-between;
+            p{
+                font-size: 14px;
+                font-weight: 400;
+            }
+            span{
+                font-size: 14px;
+                font-weight: 400;
+            }
+        }
+    }
+    &__total{
+        margin-top: 10px;
+        h3{
+            font-size: 20px;
+            font-weight: 400;
+        }
+    }
+}

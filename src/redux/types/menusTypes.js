@@ -1,3 +1,3 @@
-export const restaurantsTypes = {
+export const menusTypes = {
     MENUS_FILL: 'MENUS_FILL'
 }
