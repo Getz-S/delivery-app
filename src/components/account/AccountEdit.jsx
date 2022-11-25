@@ -1,90 +1,67 @@
 import React, { useEffect } from 'react'
 import './account.scss'
+import profileImage from '../../assets/images/Profileimg.png'
+import accountEditIcon from '../../assets/images/accountEditIcon.png'
+import accountEditNotificationIcon from '../../assets/images/accountEditNotificationIcon.png'
+import paymentIcon from '../../assets/images/paymentIcon.png'
+import languageIcon from '../../assets/images/languageIcon.png'
+import accountLocationIcon from '../../assets/images/accountLocationIcon.png'
+import FAQIcon from '../../assets/images/FAQIcon.png'
+import supportIcon from '../../assets/images/supportIcon.png'
+import homeIcon from '../../assets/images/homeIcon.png'
+import searchIcon from '../../assets/images/searchIcon.png'
+import historyIcon from '../../assets/images/historyIcon.png'
+import accountIconSelected from '../../assets/images/accountIconSelected.png'
 import { useNavigate } from 'react-router'
-import { useDispatch, useSelector } from 'react-redux'
-import { yupResolver } from '@hookform/resolvers/yup'
-import { FloatingLabel } from 'react-bootstrap'
-import { useForm } from 'react-hook-form'
-import { schemaRegister } from '../../services/data'
-import { fileUpLoad } from '../../services/fileUpload'
-import { Form } from 'react-router-dom'
+import { useSelector } from 'react-redux'
 
-const AccountEdit = () => {
+const Account = () => {
     const user = useSelector((store) => store.userStore);
     const navigate = useNavigate()
 
-    const dispatch = useDispatch();
-    const {
-      register,
-      handleSubmit,
-      formState: { errors },
-    } = useForm({
-      resolver: yupResolver(schemaRegister),
-    });
-    const onUpLoadImage = async (image) => {
-      const url = await fileUpLoad(image);
-      if (url) {
-        return url;
-      } else {
-        console.log("Ocurrió un error al cargar la imagen");
-      }
-    };
+    const handleGoBack = () => {
+        navigate(-1)
+    }
 
-    const onSubmit = async (data) => {
-        const photoUrl = await onUpLoadImage(data.image[0]);
-        console.log(data);
-        const newUser = {
-          name: data.name,
-          email: data.email,
-          password: data.password,
-          avatar: photoUrl,
-          phoneNumber: data.phone,
-        };
-        // dispatch(actionRegisterAsync(newUser));
-      };
+    const handleFooterButtons = (direction) => {
+        navigate(`/${direction}`)
+    }
   return (
     <div className='body'>
         <main className='mainAccount'>
+        <img onClick={handleGoBack} src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Ic_chevron_left_48px.svg/1200px-Ic_chevron_left_48px.svg.png" width='30px' alt="Go back" />
             <div className='mainAccount__info'>
                 <img src={user.avatar} alt="Profile image" />
-                <p>{user.name}</p>
             </div>
-            <form className='mainAccount__options' onSubmit={handleSubmit(onSubmit)}>
-            <div className='mainRegister__formInputs'>
-                <label>
-                    NAME
-                    <input type="text" placeholder='Enter your name' {...register("name")}/>
-                    <p>{errors.name?.message}</p>
-                </label>
-                <label>
-                    EMAIL
-                    <input type="email" placeholder='Enter your E-mail' {...register("email")}/>
-                    <p>{errors.email?.message}</p>
-                </label>
-                <label>
-                    PHONE NUMBER
-                    <input type="number" placeholder='Enter your phone number' {...register("phone")}/>
-                    <p>{errors.phone?.message}</p>
-                </label>
-                <label>
-                    PASSWORD
-                    <input type="password" placeholder='Enter your password' {...register("password")}/>
-                    <p>{errors.password?.message}</p>
-                </label>
-                <FloatingLabel label="Avatar" className="mb-3">
-            <Form.Control type="file" size="sm" {...register("image")} />
-            {/* <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
-            </Form.Text> */}
-          </FloatingLabel>
-            </div>
-            <div className='mainAccount__formBottom'>
-                <button type='submit'>Confirm</button>
-            </div>
-            </form>
+            <section className='mainAccount__options'>
+                <article>
+                    <div onClick={()=>{handleFooterButtons('accountEdit')}} className='mainAccount__optionName'>
+                        <img src='' alt="" />
+                        <p>Name</p>
+                        <p>{user.name}</p>
+                    </div>
+                    <img src="#" alt="" />
+                </article>
+                <article>
+                    <div className='mainAccount__optionName'>
+                        <img src='#' alt="" />
+                        <p>password</p>
+                        <p>.........</p>
+                    </div>
+                    <img src="#" alt="" />
+                </article>
+                <article>
+                    <div className='mainAccount__optionName'>
+                        <img src='#' alt="" />
+                        <p>Phone Number</p>
+                        <p>{user.phoneNumber}</p>
+                    </div>
+                    <img src="#" alt="" />
+                </article>
+            </section>
         </main>
     </div>
   )
 }
 
-export default AccountEdit
+export default Account
